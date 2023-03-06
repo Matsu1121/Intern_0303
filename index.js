@@ -236,7 +236,7 @@ if (videoEnabled) {
 }
 
 // APIのKeyなどの設定
-const subscriptionKey = '9495b5282cbc4d7386a9d46c9bdeeb1a';
+const subscriptionKey = '';
 const uriBase =
   'https://australiaeast.api.cognitive.microsoft.com/face/v1.0/detect';
 const params = {
