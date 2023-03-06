@@ -1,0 +1,27 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6px;
+  row-gap: 10px;
+}
+.row {
+  grid-column: 1 / 3;
+}
+#responseTextArea {
+  width: 96%;
+  height: 15rem;
+  margin: 0 auto;
+}
+#player {
+  height: 100%;
+  width: 100%;
+}
+#snapshot {
+  border: solid;
+  height: 100%;
+  width: 100%;
+}

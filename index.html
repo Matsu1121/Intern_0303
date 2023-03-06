@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Webサイトのタイトル -->
+    <title>Detect Faces Sample</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- 使いたいCSSの指定 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <style></style>
+  </head>
+
+  <body style="background: oldlace">
+    <div class="container" id="container">
+      <div class="row">
+        <h2 id="title" class="row">Detect Faces</h2>
+      </div>
+      <div class="row">
+        <!-- カメラ映像を表示 -->
+        <div id="player-wrapper" class="col">
+          <image id="player" src="" />
+        </div>
+
+        <!-- スナップショット表示 -->
+        <div class="col">
+          <canvas id="snapshot" />
+        </div>
+      </div>
+
+      <!-- 撮影ボタン -->
+      <div class="row">
+        <div class="col">
+          <input type="file" id="image" name="image" />
+          <button id="captureButton" class="btn btn-primary">
+            アップロード
+          </button>
+        </div>
+      </div>
+
+      <!-- 顔情報のJsonを表示 -->
+      <div class="row">
+        <textarea id="responseTextArea" class="UIInput"></textarea>
+      </div>
+    </div>
+  </body>
+</html>
