@@ -1,6 +1,6 @@
 const videoEnabled = false;
 
-const name = '江の島';
+const name = 'matsua';
 document.getElementById('title').innerHTML = `${name}'s Faces App`;
 
 /**
