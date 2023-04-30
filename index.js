@@ -4,11 +4,9 @@ const name = 'matsua';
 document.getElementById('title').innerHTML = `${name}'s Faces App`;
 
 /**
- * 課題(1)
  * 画像イメージをURLとして読み込む.
  */
 const imageLoader = (imageElement) => {
-  //課題(1) 下の???を正しいものに直す
   const player = document.getElementById('player');
   const reader = new FileReader();
   reader.addEventListener('load', () => (player.src = reader.result), false);
@@ -28,7 +26,7 @@ $(function () {
     });
   }
 
-  //課題(2) 撮影ボタンを押したら静止画を撮影して、映像の隣に静止画が表示されるようにする
+  // 撮影ボタンを押したら静止画を撮影して、映像の隣に静止画が表示されるようにする
   const caputureButton = document.getElementById('captureButton');
   caputureButton.addEventListener('click', function () {
     const snapshot = document.getElementById('snapshot');
@@ -38,7 +36,7 @@ $(function () {
   });
 });
 
-//課題(3) 撮影した静止画を使って解析APIを呼び出す
+// 撮影した静止画を使って解析APIを呼び出す
 const faceApi = function (sourceImage) {
   //FaceApi呼び出し
   $.ajax({
@@ -53,7 +51,7 @@ const faceApi = function (sourceImage) {
   })
     .done(function (data) {
       // API呼び出し結果 画面表示
-      //➀textAreaという変数を作って、結果を表示したいHTML側の枠の要素（Id）を設定する
+      // textAreaという変数を作って、結果を表示したいHTML側の枠の要素（Id）を設定する
       const textArea = document.getElementById('responseTextArea');
       textArea.value = JSON.stringify(data, null, 2);
       // 枠線表示
@@ -65,7 +63,7 @@ const faceApi = function (sourceImage) {
     });
 };
 
-//課題４：顔に枠を出す処理部分を書き、解析結果表示の時に呼び出すようにする
+// 顔に枠を出す処理部分を書き、解析結果表示の時に呼び出すようにする
 //顔枠線処理//
 const drawFaceline = function (data) {
   data.forEach(function (element, index) {
@@ -73,7 +71,7 @@ const drawFaceline = function (data) {
     const faceRe = element.faceRectangle;
     const glasses = element.faceAttributes.glasses;
     const gender = element.faceAttributes.gender;
-    //➀faceReに格納されている顔の位置情報を、それぞれleft,top,width,heightという変数を作ってそこに設定する。
+    // faceReに格納されている顔の位置情報を、それぞれleft,top,width,heightという変数を作ってそこに設定する。
     const left = faceRe.left;
     const top = faceRe.top;
     const width = faceRe.width;
@@ -97,16 +95,16 @@ const drawFaceline = function (data) {
     const LeftInnery = faceLandmarks.eyeLeftInner.y;
     const RightInnery = faceLandmarks.eyeRightInner.y;
 
-    //➁変数"canvas"を作り、顔枠を出したい静止画の要素を取得して設定する
+    // 変数"canvas"を作り、顔枠を出したい静止画の要素を取得して設定する
     const canvas = document.getElementById('snapshot');
     const ctx = canvas.getContext('2d');
     //枠線の色や太さの設定
     ctx.lineWidth = 2;
-    //➂枠線の色を設定する（RGB方式）
+    // 枠線の色を設定する（RGB方式）
     ctx.strokeStyle = 'rgb(0,255,0)';
     //ctx.strokeRect(left, top, width, height);
     // 番号を表示
-    //➃枠線の上に表示する数字の色を設定する（RGB方式）
+    // 枠線の上に表示する数字の色を設定する（RGB方式）
     ctx.fillStyle = 'rgb(255,0,0)';
     ctx.font = "bold 32px 'Arial'";
     //ctx.fillText(index + 1, left, top);
@@ -211,8 +209,6 @@ const makeblob = function (dataURL) {
 
 // おまけ
 // ビデオから映像取得
-// オンラインではカメラが有効でない可能性があるため、今回は使用しません。
-// 興味がある方は自力でやってみてください。
 if (videoEnabled) {
   // 画像
   document.getElementById('player').remove();
@@ -225,8 +221,8 @@ if (videoEnabled) {
     .getUserMedia({ video: true })
     .then(function (stream) {
       //ページ上で再生
-      //課題(1) 下の???を正しいものに直す
-      const player = document.getElementById('player');
+      //
+    const player = document.getElementById('player');
 
       player.srcObject = stream;
     })
